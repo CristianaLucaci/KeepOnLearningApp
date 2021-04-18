@@ -12,7 +12,7 @@
 	<artifactId>keeponlearning</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>keeponlearning</name>
-	<description>Web app creating a way for teachers and students to connect and learn together </description>
+	<description>Web and Mobile app creating a way for teachers and students to connect and learn together </description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -26,6 +26,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<!--Add support for automatic reloading-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
 	</dependencies>
 

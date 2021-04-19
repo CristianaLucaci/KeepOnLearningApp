@@ -14,7 +14,7 @@
 	<name>keeponlearning</name>
 	<description>Web and Mobile app creating a way for teachers and students to connect and learn together </description>
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>13</java.version>
 	</properties>
 	<dependencies>
 		<!--Add MVC and REST support-->
@@ -27,6 +27,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<!--Add Hibernate ORM support-->
@@ -34,12 +40,22 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
+		</dependency>
 
 		<!--MySQL JDBC Driver-->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
 		</dependency>
 
 		<!--Add support for automatic reloading-->
@@ -56,11 +72,13 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
-		<!--Add support for Spring Security-->
+		<!--
+		Add support for Spring Security
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+		-->
 	</dependencies>
 
 	<build>

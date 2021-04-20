@@ -11,16 +11,19 @@
       <nav class="navbar-sidebar">
         <ul class="list-unstyled navbar-list">
           <li>
-            <a href="#">Mathematics</a>
+            <a routerLink="/offer_category/1" routerLinkActive="active-link">Computer Science</a>
           </li>
           <li>
-            <a href="#">Computer Science</a>
+            <a routerLink="/offer_category/2" routerLinkActive="active-link">Mathematics</a>
           </li>
           <li>
-            <a href="#">Literature</a>
+            <a routerLink="/offer_category/3" routerLinkActive="active-link">Literature</a>
           </li>
           <li>
-            <a href="#">History</a>
+            <a routerLink="/offer_category/4" routerLinkActive="active-link">History</a>
+          </li>
+          <li>
+            <a routerLink="/offer_category/5" routerLinkActive="active-link">History</a>
           </li>
         </ul>
       </nav>
@@ -56,7 +59,9 @@
         <!-- END HEADER DESKTOP-->
 
         			<!-- MAIN CONTENT-->
-              <app-offer-list></app-offer-list>
+        <router-outlet></router-outlet>
+
+
 
 
         </div>

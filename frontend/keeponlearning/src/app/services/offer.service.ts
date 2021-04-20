@@ -14,8 +14,11 @@ export class OfferService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getOfferList(): Observable<Offer[]>{
-    return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
+  getOfferList(theCategoryId: number): Observable<Offer[]>{
+  //build URL based on category id
+    const searchUrl=`${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`;
+
+    return this.httpClient.get<GetResponse>(searchUrl).pipe(
       map(response => response._embedded.offers)
     );
   }

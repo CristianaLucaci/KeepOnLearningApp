@@ -1,0 +1,21 @@
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Professor</th>
+            <th>Participants</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let tempOffer of offers">
+            <td class="align-middle">
+                <img src="{{ tempOffer.imageUrl }}" height="50" />
+            </td>
+            <td class="align-middle">{{ tempOffer.name}}</td>
+            <td class="align-middle"> {{ tempOffer.professorName}}</td>
+            <td class="align-middle">{{ tempOffer.participants}}</td>
+        </tr>
+    </tbody>
+</table>

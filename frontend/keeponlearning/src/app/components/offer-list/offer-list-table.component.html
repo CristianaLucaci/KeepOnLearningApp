@@ -1,0 +1,16 @@
+<table class="table">
+    
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Participants</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let tempOffers of offers">
+            <td>{{ tempOffers.name}}</td>
+            <td>{{ tempOffers.participants}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -6,6 +6,7 @@ import { OfferListComponent } from './components/offer-list/offer-list.component
 import { HttpClientModule } from '@angular/common/http';
 import { OfferService } from './services/offer.service'
 import {Routes, RouterModule} from "@angular/router";
+import { OfferCategoryMenuComponent } from './components/offer-category-menu/offer-category-menu.component';
 
 const routes: Routes = [
   {path: 'offer_category/:id', component: OfferListComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    OfferListComponent
+    OfferListComponent,
+    OfferCategoryMenuComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

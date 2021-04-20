@@ -1,4 +1,4 @@
-package com.pad.keeponlearning.keeponlearning;
+package com.pad.keeponlearning;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

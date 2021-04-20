@@ -5,7 +5,8 @@ import { OfferService } from 'src/app/services/offer.service';
 @Component({
   selector: 'app-offer-list',
   //templateUrl: './offer-list-table.component.html',
-  templateUrl: './offer-list-table.component.html',
+  //templateUrl: './offer-list-table.component.html',
+  templateUrl: './offer-list-grid.component.html',
 
   styleUrls: ['./offer-list.component.css']
 })

@@ -7,19 +7,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { OfferService } from './services/offer.service'
 import {Routes, RouterModule} from "@angular/router";
 import { OfferCategoryMenuComponent } from './components/offer-category-menu/offer-category-menu.component';
+import { SearchComponent } from './components/search/search.component';
 
 const routes: Routes = [
+  {path: 'search/:keyword', component: OfferListComponent},
   {path: 'offer_category/:id', component: OfferListComponent},
   {path: 'offer_category', component: OfferListComponent},
-  {path: 'offer_category', component: OfferListComponent},
-  {path: '', redirectTo: '/offer_category',pathMatch: 'full'},
-  {path: '**', redirectTo: '/offer_category',pathMatch: 'full'}
+  {path: 'offers', component: OfferListComponent},
+  {path: '', redirectTo: '/offers',pathMatch: 'full'},
+  {path: '**', redirectTo: '/offers',pathMatch: 'full'}
 ];
 @NgModule({
   declarations: [
     AppComponent,
     OfferListComponent,
-    OfferCategoryMenuComponent
+    OfferCategoryMenuComponent,
+    SearchComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

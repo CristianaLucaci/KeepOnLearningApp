@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name="product_category")
+@Table(name="offer_category")
 //@Data -- known bug
 @Getter
 @Setter

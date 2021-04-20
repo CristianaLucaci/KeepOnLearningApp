@@ -5,11 +5,10 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@Table(name="product")
+@Table(name="offer")
 @Data
 public class Offer {
 
@@ -22,8 +21,8 @@ public class Offer {
     @JoinColumn(name = "category_id", nullable=false)
     private OfferCategory category;
 
-    @Column(name = "sku")
-    private String sku;
+    @Column(name = "professor_name")
+    private String professorName;
 
     @Column(name = "name")
     private String name;
@@ -31,8 +30,8 @@ public class Offer {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "unit_price")
-    private BigDecimal unitPrice;
+    @Column(name = "participants")
+    private int participants;
 
     @Column(name = "image_url")
     private String imageUrl;
@@ -40,8 +39,8 @@ public class Offer {
     @Column(name = "active")
     private boolean active;
 
-    @Column(name = "units_in_stock")
-    private int unitsInStock;
+    @Column(name = "places_available")
+    private int placesAvailable;
 
     @Column(name = "date_created")
     @CreationTimestamp

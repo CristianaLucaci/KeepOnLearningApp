@@ -10,9 +10,9 @@ import {Routes, RouterModule} from "@angular/router";
 const routes: Routes = [
   {path: 'offer_category/:id', component: OfferListComponent},
   {path: 'offer_category', component: OfferListComponent},
-  {path: 'offer', component: OfferListComponent},
-  {path: '', redirectTo: '/offer',pathMatch: 'full'},
-  {path: '**', redirectTo: '/offer',pathMatch: 'full'}
+  {path: 'offer_category', component: OfferListComponent},
+  {path: '', redirectTo: '/offer_category',pathMatch: 'full'},
+  {path: '**', redirectTo: '/offer_category',pathMatch: 'full'}
 ];
 @NgModule({
   declarations: [

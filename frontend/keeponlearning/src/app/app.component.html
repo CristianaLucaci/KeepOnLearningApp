@@ -7,27 +7,10 @@
         <img src="assets/images/logo.png" alt="keeponlearning" class="img-responsive">
       </a>
     </div>
-    <div class="menu-sidebar-content js-scrollbar1">
-      <nav class="navbar-sidebar">
-        <ul class="list-unstyled navbar-list">
-          <li>
-            <a routerLink="/offer_category/1" routerLinkActive="active-link">Computer Science</a>
-          </li>
-          <li>
-            <a routerLink="/offer_category/2" routerLinkActive="active-link">Mathematics</a>
-          </li>
-          <li>
-            <a routerLink="/offer_category/3" routerLinkActive="active-link">Literature</a>
-          </li>
-          <li>
-            <a routerLink="/offer_category/4" routerLinkActive="active-link">History</a>
-          </li>
-          <li>
-            <a routerLink="/offer_category/5" routerLinkActive="active-link">History</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+
+    <app-offer-category-menu></app-offer-category-menu>
+
+
   </aside>
   <!-- END MENU SIDEBAR-->
 
@@ -38,13 +21,11 @@
           <div class="section-content section-content-p30">
             <div class="container-fluid">
               <div class="header-wrap">
-                <form class="form-header" onsubmit="return false;" method="GET">
-                  <input class="au-input au-input-xl" type="text" name="search"
-                    placeholder="Search a course..." />
-                  <button class="au-btn-submit" type="submit">
-                    Search
-                  </button>
-                </form>
+
+                <app-search></app-search>
+
+
+
                 <div class="cart-area d-n">
                   <a href="shopping-detail.html">
                     <div class="total">Your courses <span> 2</span> </div> <i class="fa fa-book"

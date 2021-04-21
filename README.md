@@ -1,4 +1,6 @@
-# *Keep on Learning*
+
+![Keep on learning (6)](https://user-images.githubusercontent.com/62287875/115512057-38f99780-a28a-11eb-903a-68856b151cf2.png)
+
 
 ## Team
 Cristiana Lucaci, Iulia Drăgan, Dragoș Tudosoiu, Raluca Cărare

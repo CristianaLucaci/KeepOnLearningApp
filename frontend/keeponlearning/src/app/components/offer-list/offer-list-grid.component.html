@@ -6,8 +6,12 @@
                 <!-- loop over the collection of offers -->
                 <div *ngFor="let tempOffer of offers" class="col-md-3">
                 <div class="product-box">
+                  <a routerLink="/offers/{{ tempOffer.id }}">
                     <img src="{{ tempOffer.imageUrl }}" class="img-responsive">
+                    </a>
+                    <a routerLink="/offers/{{ tempOffer.id }}">
                     <h1>{{ tempOffer.name }}</h1>
+                    </a>
                     <div class="participants">Number of students: {{tempOffer.participants}}</div>
                     <a href="#" class="primary-btn">Enroll</a>
                     </div>

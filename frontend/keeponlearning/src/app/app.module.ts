@@ -8,12 +8,14 @@ import { OfferService } from './services/offer.service'
 import {Routes, RouterModule} from "@angular/router";
 import { OfferCategoryMenuComponent } from './components/offer-category-menu/offer-category-menu.component';
 import { SearchComponent } from './components/search/search.component';
+import { OfferDetailsComponent } from './components/offer-details/offer-details.component';
 
 const routes: Routes = [
   {path: 'search/:keyword', component: OfferListComponent},
   {path: 'offer_category/:id', component: OfferListComponent},
   {path: 'offer_category', component: OfferListComponent},
   {path: 'offers', component: OfferListComponent},
+  {path: 'offers/:id', component: OfferDetailsComponent},
   {path: '', redirectTo: '/offers',pathMatch: 'full'},
   {path: '**', redirectTo: '/offers',pathMatch: 'full'}
 ];
@@ -22,7 +24,8 @@ const routes: Routes = [
     AppComponent,
     OfferListComponent,
     OfferCategoryMenuComponent,
-    SearchComponent
+    SearchComponent,
+    OfferDetailsComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

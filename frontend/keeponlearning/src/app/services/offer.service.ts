@@ -29,6 +29,11 @@ export class OfferService {
     );
   }
 
+  getOffer(theOfferId: number): Observable<Offer>{
+    const offerUrl = `${this.baseUrl}/${theOfferId}`;
+    return this.httpClient.get<Offer>(offerUrl);
+  }
+
   searchOffers(theKeyword: string): Observable<Offer[]> {
     //build URL based on keyword
     const searchUrl=`${this.baseUrl}/search/findByNameContaining?name=${theKeyword}`;

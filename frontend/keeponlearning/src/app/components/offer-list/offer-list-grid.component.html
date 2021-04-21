@@ -12,6 +12,11 @@
                     <a href="#" class="primary-btn">Enroll</a>
                     </div>
                     </div>
+                      <!-- if offers is empty display message-->
+                      <div *ngIf="offers?.length==0" class="alert alert-warning col-md-12" role="alert">
+                        No courses found.
+                      </div>
+
                     </div>
             </div>
         </div>

@@ -20,14 +20,24 @@ export class OfferService {
   //build URL based on category id
     const searchUrl=`${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`;
 
-    return this.httpClient.get<GetResponseOffers>(searchUrl).pipe(
-      map(response => response._embedded.offers)
-    );
+    return this.getOffers(searchUrl);
   }
 
   getOfferCategories(): Observable<OfferCategory[]> {
     return this.httpClient.get<GetResponseOfferCategory>(this.categoryUrl).pipe(
       map(response => response._embedded.offerCategory)
+    );
+  }
+
+  searchOffers(theKeyword: string): Observable<Offer[]> {
+    //build URL based on keyword
+    const searchUrl=`${this.baseUrl}/search/findByNameContaining?name=${theKeyword}`;
+    return this.getOffers(searchUrl);
+  }
+
+  private getOffers(searchUrl: string) {
+    return this.httpClient.get<GetResponseOffers>(searchUrl).pipe(
+      map(response => response._embedded.offers)
     );
   }
 }

@@ -14,6 +14,7 @@ export class OfferListComponent implements OnInit {
 
   offers: Offer[];
   currentCategoryId: number;
+  searchMode: boolean;
 
   constructor(private offerService: OfferService,
               private route: ActivatedRoute) { }
@@ -25,8 +26,17 @@ export class OfferListComponent implements OnInit {
   }
 
   listOffers(){
+    this.searchMode=this.route.snapshot.paramMap.has('keyword');
+    if(this.searchMode){
+      this.handleSearchOffers();
+    }
+    else
+    this.handleListOffers();
 
-      //check if id parameter is available
+  }
+
+  handleListOffers(){
+    //check if id parameter is available
     const hasCategoryId: boolean = this.route.snapshot.paramMap.has('id');
 
     if(hasCategoryId){
@@ -37,10 +47,20 @@ export class OfferListComponent implements OnInit {
       //no category id available
       this.currentCategoryId=1;
     }
-      //get the offers for the given category id
+    //get the offers for the given category id
     this.offerService.getOfferList(this.currentCategoryId).subscribe(
       data => {
         this.offers = data;
+      }
+    )
+  }
+
+  private handleSearchOffers() {
+    const theKeyword: string = this.route.snapshot.paramMap.get('keyword');
+    //search for offers using keyword
+    this.offerService.searchOffers(theKeyword).subscribe(
+      data =>{
+        this.offers=data;
       }
     )
   }

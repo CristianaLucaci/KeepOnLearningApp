@@ -10,6 +10,9 @@ import { OfferCategoryMenuComponent } from './components/offer-category-menu/off
 import { SearchComponent } from './components/search/search.component';
 import { OfferDetailsComponent } from './components/offer-details/offer-details.component';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 const routes: Routes = [
   {path: 'search/:keyword', component: OfferListComponent},
   {path: 'offer_category/:id', component: OfferListComponent},
@@ -30,7 +33,8 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes),
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [OfferService],
   bootstrap: [AppComponent]

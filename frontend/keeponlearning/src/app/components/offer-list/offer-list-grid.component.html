@@ -35,13 +35,16 @@
                         <ngb-pagination [(page)]="thePageNumber"
                                           [pageSize]="thePageSize"
                                           [collectionSize]="theTotalElements"
+                                          [maxSize]="5"
+                                          [boundaryLinks]="true"
                                           (pageChange)="listOffers()">
                             
                         </ngb-pagination>
 
                       </div>
 
-                    <div class="col-md-3 mt-2" style="text-align: right;">
+                    <!--<div class="col-md-3 mt-2" style="text-align: right;">-->
+                    <div class="col-ms-3 mt-2" style="padding-right: 30%">  
                       <span class="mr-2">Page Size</span>
                       <select (change)="updatePageSize($event.target.value)">
                         <option selected="true">5</option>

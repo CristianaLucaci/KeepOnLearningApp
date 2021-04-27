@@ -22,6 +22,8 @@ export class OfferListComponent implements OnInit {
   thePageSize: number = 5;
   theTotalElements: number = 0;
 
+  previousKeyword: string = null;
+
   constructor(private offerService: OfferService,
               private route: ActivatedRoute) { }
 
@@ -87,13 +89,25 @@ export class OfferListComponent implements OnInit {
       }
 
   private handleSearchOffers() {
-    const theKeyword: string = this.route.snapshot.paramMap.get('keyword');
+    const theKeyword: string = this.route.snapshot.
+    paramMap.get('keyword');
+
+    //if we have a different keyword than previous
+    //then set thePageNumber to 1
+    
+    if(this.previousKeyword!=theKeyword){
+      this.thePageNumber=1;
+    }
+
+    this.previousKeyword=theKeyword;
+
+    console.log(`keyword=${theKeyword}, thePageNumber=${this.thePageNumber}`);
+
     //search for offers using keyword
-    this.offerService.searchOffers(theKeyword).subscribe(
-      data =>{
-        this.offers = data;
-      }
-    )
+    this.offerService.searchOffersPaginate(this.thePageNumber-1,
+      this.thePageSize,
+      theKeyword
+    ).subscribe(this.processResult());
   }
 
   

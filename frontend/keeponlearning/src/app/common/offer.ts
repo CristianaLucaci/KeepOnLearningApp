@@ -1,4 +1,5 @@
 export class Offer {
+    id: string;
     professorName: string;
     name: string;
     description: string;

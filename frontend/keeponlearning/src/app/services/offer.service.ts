@@ -23,10 +23,25 @@ export class OfferService {
     return this.getOffers(searchUrl);
   }
 
+  getOfferListPaginate(thePage: number, 
+                       thePageSize: number, 
+                       theCategoryId: number): Observable<GetResponseOffers> {
+                         
+      const searchUrl=`${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`
+                       + `&page=${thePage}&size=${thePageSize}`;
+      
+      return this.httpClient.get<GetResponseOffers>(searchUrl);
+    }
+
   getOfferCategories(): Observable<OfferCategory[]> {
     return this.httpClient.get<GetResponseOfferCategory>(this.categoryUrl).pipe(
       map(response => response._embedded.offerCategory)
     );
+  }
+
+  getOffer(theOfferId: number): Observable<Offer>{
+    const offerUrl = `${this.baseUrl}/${theOfferId}`;
+    return this.httpClient.get<Offer>(offerUrl);
   }
 
   searchOffers(theKeyword: string): Observable<Offer[]> {
@@ -45,6 +60,12 @@ export class OfferService {
 interface GetResponseOffers{
   _embedded: {
     offers: Offer[];
+  },
+  page: {
+    size: number,
+    totalElements: number,
+    totalPages: number,
+    number: number
   }
 }
 

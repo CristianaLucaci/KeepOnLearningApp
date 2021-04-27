@@ -12,9 +12,15 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class OfferListComponent implements OnInit {
 
-  offers: Offer[];
-  currentCategoryId: number;
-  searchMode: boolean;
+  offers: Offer[] = [];
+  currentCategoryId: number = 1;
+  previousCategoryId: number = 1;
+  searchMode: boolean = false;
+
+  //new properties for pagination
+  thePageNumber: number = 1;
+  thePageSize: number = 5;
+  theTotalElements: number = 0;
 
   constructor(private offerService: OfferService,
               private route: ActivatedRoute) { }
@@ -47,21 +53,43 @@ export class OfferListComponent implements OnInit {
       //no category id available
       this.currentCategoryId=1;
     }
-    //get the offers for the given category id
-    this.offerService.getOfferList(this.currentCategoryId).subscribe(
-      data => {
-        this.offers = data;
-      }
-    )
+
+  //check if we have a different category than previous
+  //if we have a different category id than previous then set thePageNumber to 1
+
+  if(this.previousCategoryId != this.currentCategoryId ){
+    this.thePageNumber = 1;
   }
+
+  this.previousCategoryId = this.currentCategoryId;
+
+    //get the offers for the given category id
+    this.offerService.getOfferListPaginate(this.thePageNumber - 1, 
+                                          this.thePageSize,
+                                          this.currentCategoryId)
+                                          .subscribe(this.processResult());
+
+      }
+
+      processResult() {
+        return data => {
+          this.offers = data._embedded.offers;
+          this.thePageNumber = data.page.number + 1;
+          this.thePageSize = data.page.size;
+          this.theTotalElements = data.page.totalElements;
+        };
+      }
+  
 
   private handleSearchOffers() {
     const theKeyword: string = this.route.snapshot.paramMap.get('keyword');
     //search for offers using keyword
     this.offerService.searchOffers(theKeyword).subscribe(
       data =>{
-        this.offers=data;
+        this.offers = data;
       }
     )
   }
+
+  
 }

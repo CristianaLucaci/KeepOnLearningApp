@@ -80,6 +80,11 @@ export class OfferListComponent implements OnInit {
         };
       }
   
+      updatePageSize(pageSize: number){
+        this.thePageSize=pageSize;
+        this.thePageNumber=1;
+        this.listOffers();
+      }
 
   private handleSearchOffers() {
     const theKeyword: string = this.route.snapshot.paramMap.get('keyword');

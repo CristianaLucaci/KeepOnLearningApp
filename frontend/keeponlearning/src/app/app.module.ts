@@ -11,6 +11,7 @@ import { SearchComponent } from './components/search/search.component';
 import { OfferDetailsComponent } from './components/offer-details/offer-details.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CartStatusComponent } from './components/cart-status/cart-status.component';
 
 
 const routes: Routes = [
@@ -28,7 +29,8 @@ const routes: Routes = [
     OfferListComponent,
     OfferCategoryMenuComponent,
     SearchComponent,
-    OfferDetailsComponent
+    OfferDetailsComponent,
+    CartStatusComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

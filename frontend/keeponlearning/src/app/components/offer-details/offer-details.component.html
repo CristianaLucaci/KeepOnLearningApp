@@ -5,7 +5,7 @@
 
         <h3>{{ offer.name }}</h3>
         <div class="Number of students">Number of students: {{ offer.participants }}</div>
-        <a href="#" class="primary-btn">Enroll</a>
+        <button (click)="addToCourses()" class="btn btn-primary btn-sm">Enroll to course</button>
 
         <hr>
         <h4>Course description</h4>

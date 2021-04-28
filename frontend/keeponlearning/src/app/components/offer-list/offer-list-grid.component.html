@@ -13,7 +13,7 @@
                     <h1>{{ tempOffer.name }}</h1>
                     </a>
                     <div class="participants">Number of students: {{tempOffer.participants}}</div>
-                    <a href="#" class="primary-btn">Enroll</a>
+                    <button (click)="addToCourses(tempOffer)" class="btn btn-primary btn-sm">Enroll to course</button>
                 </div>
                 </div>
                       <!-- if offers is empty display message-->

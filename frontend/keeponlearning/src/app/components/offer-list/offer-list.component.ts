@@ -110,5 +110,12 @@ export class OfferListComponent implements OnInit {
     ).subscribe(this.processResult());
   }
 
+  addToCourses(theOffer: Offer){
+    console.log(`Adding  ${theOffer.name}`);
+
+    //TO DO 
+  }
+
+
   
 }

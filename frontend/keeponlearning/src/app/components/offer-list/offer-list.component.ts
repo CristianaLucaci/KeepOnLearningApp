@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Offer } from 'src/app/common/offer';
 import { OfferService } from 'src/app/services/offer.service';
 import {ActivatedRoute} from "@angular/router";
+import { CartItem } from 'src/app/common/cart-item';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-offer-list',
@@ -25,6 +27,7 @@ export class OfferListComponent implements OnInit {
   previousKeyword: string = null;
 
   constructor(private offerService: OfferService,
+              private cartService: CartService,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -110,5 +113,12 @@ export class OfferListComponent implements OnInit {
     ).subscribe(this.processResult());
   }
 
-  
+  addToCourses(theOffer: Offer){
+    console.log(`Adding  ${theOffer.name}`);
+
+    const theCartItem = new CartItem(theOffer);
+    
+    this.cartService.addToCourses(theCartItem);
+  }
+
 }

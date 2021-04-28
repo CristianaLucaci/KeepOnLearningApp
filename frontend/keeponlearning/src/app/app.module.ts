@@ -14,6 +14,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
 
 
+
 const routes: Routes = [
   {path: 'search/:keyword', component: OfferListComponent},
   {path: 'offer_category/:id', component: OfferListComponent},
@@ -30,7 +31,7 @@ const routes: Routes = [
     OfferCategoryMenuComponent,
     SearchComponent,
     OfferDetailsComponent,
-    CartStatusComponent
+    CartStatusComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),

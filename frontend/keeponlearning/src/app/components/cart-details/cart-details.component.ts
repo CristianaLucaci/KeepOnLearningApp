@@ -30,4 +30,9 @@ export class CartDetailsComponent implements OnInit {
     this.cartService.computeCartTotals();
   }
 
+  remove(theCartItem:CartItem){
+    this.cartService.remove(theCartItem);
+  }
+  
+
 }

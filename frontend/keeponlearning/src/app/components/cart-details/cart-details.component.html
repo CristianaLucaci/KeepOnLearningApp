@@ -1,11 +1,14 @@
 <div class ="main-content">
     <div class="section-content section-content-p30">
         <div class="container-fluid">
+            <div *ngIf="cartItems.length > 0">
+
             <table class="table table-bordered">
                 <tr>
                     <th width="20%">Course Image</th>
-                    <th width="50%">Course Detail</th>
-                    <th width="30%">Description</th>
+                    <th width="30%">Course Detail</th>
+                    <th width="35%">Description</th>
+                    <th width="15%">Remove the course</th>
                 </tr>
 
                 <tr *ngFor="let tempCartItem of cartItems">
@@ -21,8 +24,16 @@
                         <p>{{ tempCartItem.description }} </p>
 
                     </td>
+                    <td>
+                        <button (click)="remove(tempCartItem)" class="btn btn-primary btn-sm mt-2">Remove</button>
+                    </td>
                 </tr>
             </table>
+        </div>
+
+        <div *ngIf="cartItems.length == 0" class="alert alert-warning col-md-12" role="alert">
+            Enroll to a course first.
+        </div>
         </div>
     </div>
 </div>

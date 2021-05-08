@@ -21,7 +21,7 @@ import{
   OKTA_CONFIG,
   OktaAuthModule,
   OktaCallbackComponent
-} from "@okta/okta-angular";
+} from '@okta/okta-angular';
 
 import myAppConfig from './config/my-app-config';
 

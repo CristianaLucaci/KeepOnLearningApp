@@ -1,4 +1,4 @@
-import {NgModule, OnInit} from '@angular/core';
+import {NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -15,6 +15,10 @@ import { CartStatusComponent } from './components/cart-status/cart-status.compon
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { LoginComponent } from './components/login/login.component';
+import { LogindetailsComponent } from './components/logindetails/logindetails.component';
+import { RegisterComponent } from './components/register/register.component';
+import { RegisterdetailsComponent } from './components/registerdetails/registerdetails.component';
 
 
 
@@ -26,8 +30,11 @@ const routes: Routes = [
   {path: 'offer_category', component: OfferListComponent},
   {path: 'offers', component: OfferListComponent},
   {path: 'offers/:id', component: OfferDetailsComponent},
+  {path: 'logindetails', component: LogindetailsComponent},
+  {path: 'registerdetails', component: RegisterdetailsComponent},
   {path: '', redirectTo: '/offers',pathMatch: 'full'},
   {path: '**', redirectTo: '/offers',pathMatch: 'full'}
+
 ];
 @NgModule({
   declarations: [
@@ -39,6 +46,10 @@ const routes: Routes = [
     CartStatusComponent,
     CartDetailsComponent,
     CheckoutComponent,
+    LoginComponent,
+    LogindetailsComponent,
+    RegisterComponent,
+    RegisterdetailsComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),

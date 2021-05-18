@@ -18,7 +18,7 @@ public class Offer {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "category_id", nullable=false)
+    @JoinColumn(name = "category_id")
     private OfferCategory category;
 
     @Column(name = "professor_name")
@@ -42,12 +42,8 @@ public class Offer {
     @Column(name = "places_available")
     private int placesAvailable;
 
-    @Column(name = "date_created")
-    @CreationTimestamp
-    private Date dateCreated;
 
-    @Column(name = "last_updated")
-    @UpdateTimestamp
-    private Date lastUpdated;
+
+
 
 }

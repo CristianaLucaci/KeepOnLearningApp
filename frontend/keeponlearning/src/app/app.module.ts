@@ -19,6 +19,7 @@ import { LoginComponent } from './components/login/login.component';
 import { LogindetailsComponent } from './components/logindetails/logindetails.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RegisterdetailsComponent } from './components/registerdetails/registerdetails.component';
+import { ParticipantsListComponent } from './components/participants-list/participants-list.component';
 
 
 
@@ -32,6 +33,7 @@ const routes: Routes = [
   {path: 'offers/:id', component: OfferDetailsComponent},
   {path: 'logindetails', component: LogindetailsComponent},
   {path: 'registerdetails', component: RegisterdetailsComponent},
+  {path: 'participants-list', component: ParticipantsListComponent},
   {path: '', redirectTo: '/offers',pathMatch: 'full'},
   {path: '**', redirectTo: '/offers',pathMatch: 'full'}
 
@@ -50,6 +52,7 @@ const routes: Routes = [
     LogindetailsComponent,
     RegisterComponent,
     RegisterdetailsComponent,
+    ParticipantsListComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),

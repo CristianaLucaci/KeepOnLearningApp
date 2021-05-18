@@ -6,7 +6,9 @@
         <h3>{{ offer.name }}</h3>
         <div class="Number of students">Number of students: {{ offer.participants }}</div>
         <button (click)="addToCourses()" class="btn btn-primary btn-sm">Enroll to course</button>
-
+      <br>
+      <br>
+      <button (click)="showParticipants()"  class="btn btn-primary btn-sm"> <a routerLink="/participants-list"></a> Show Participants</button>
         <hr>
         <h4>Course description</h4>
         <p>{{ offer.description }}</p>

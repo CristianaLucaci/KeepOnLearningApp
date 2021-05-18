@@ -14,7 +14,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class OfferListComponent implements OnInit {
 
-  offers: Offer[] = [];
+  offers: Array<Offer> = [];
   currentCategoryId: number = 1;
   previousCategoryId: number = 1;
   searchMode: boolean = false;
@@ -69,7 +69,7 @@ export class OfferListComponent implements OnInit {
   this.previousCategoryId = this.currentCategoryId;
 
     //get the offers for the given category id
-    this.offerService.getOfferListPaginate(this.thePageNumber - 1, 
+    this.offerService.getOfferListPaginate(this.thePageNumber - 1,
                                           this.thePageSize,
                                           this.currentCategoryId)
                                           .subscribe(this.processResult());
@@ -84,7 +84,7 @@ export class OfferListComponent implements OnInit {
           this.theTotalElements = data.page.totalElements;
         };
       }
-  
+
       updatePageSize(pageSize: number){
         this.thePageSize=pageSize;
         this.thePageNumber=1;
@@ -97,7 +97,7 @@ export class OfferListComponent implements OnInit {
 
     //if we have a different keyword than previous
     //then set thePageNumber to 1
-    
+
     if(this.previousKeyword!=theKeyword){
       this.thePageNumber=1;
     }
@@ -117,7 +117,7 @@ export class OfferListComponent implements OnInit {
     console.log(`Adding  ${theOffer.name}`);
 
     const theCartItem = new CartItem(theOffer);
-    
+
     this.cartService.addToCourses(theCartItem);
   }
 

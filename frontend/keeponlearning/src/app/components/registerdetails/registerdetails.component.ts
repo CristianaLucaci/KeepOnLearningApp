@@ -65,7 +65,8 @@ export class RegisterdetailsComponent implements OnInit {
 
     this.registerService.register(reg).subscribe({
       next: response =>{
-        alert(`Your account :${reg.user.username} is now registered`)
+        alert(`Your account ${reg.user.username} is now registered`)
+        this.router.navigateByUrl(`/logindetails`);
       },
       error: err=>{
         alert(`There was an error: ${err.message}`);

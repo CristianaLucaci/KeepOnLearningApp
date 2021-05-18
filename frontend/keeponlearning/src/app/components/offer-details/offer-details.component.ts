@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { CartItem } from 'src/app/common/cart-item';
 import { Offer } from 'src/app/common/offer';
 import { CartService } from 'src/app/services/cart.service';
@@ -17,7 +17,8 @@ export class OfferDetailsComponent implements OnInit {
 
   constructor(private offerService: OfferService,
               private cartService: CartService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router:Router) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(() => {
@@ -44,4 +45,7 @@ export class OfferDetailsComponent implements OnInit {
   }
 
 
+  showParticipants() {
+    this.router.navigateByUrl(`/participants-list`);
+  }
 }

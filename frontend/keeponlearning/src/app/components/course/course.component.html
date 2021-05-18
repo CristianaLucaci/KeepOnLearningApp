@@ -69,12 +69,14 @@
             </div>
           </div>
 
+
+
           <div class="row">
             <div class="col-md-2"><label>Subject</label></div>
             <div class="col-md-9">
               <div class="input-space">
                 <select formControlName="subject">
-                  <option>Computer Science</option>
+                  <option>Computer_Science</option>
                   <option>Mathematics</option>
                   <option>Literature</option>
                   <option>History</option>
@@ -82,6 +84,25 @@
                 </select>
 
 
+
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-2"><label>Places available</label></div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="nr" type="text">
+
+                <div *ngIf="nr.invalid && (description.dirty || description.touched)" class="alert alert-danger mt-1">
+
+                  <div *ngIf="nr.errors.required">
+                    Description is required
+                  </div>
+
+
+                </div>
 
               </div>
             </div>

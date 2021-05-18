@@ -1,3 +1,5 @@
+import {OfferCategory} from "./offer-category";
+
 export class Offer {
     id: string;
     professorName: string;
@@ -7,8 +9,7 @@ export class Offer {
     imageUrl: string;
     active: boolean;
     placesAvailable: number;
-    dateCreated: Date;
-    lastUpdated: Date;
+    category: OfferCategory;
 }
 
 

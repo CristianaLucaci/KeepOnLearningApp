@@ -20,11 +20,15 @@ import { LogindetailsComponent } from './components/logindetails/logindetails.co
 import { RegisterComponent } from './components/register/register.component';
 import { RegisterdetailsComponent } from './components/registerdetails/registerdetails.component';
 import { ParticipantsListComponent } from './components/participants-list/participants-list.component';
+import { CourseComponent } from './components/course/course.component';
+import { CourseStatusComponent } from './components/course-status/course-status.component';
 
 
 
 const routes: Routes = [
   {path: 'checkout', component: CheckoutComponent},
+  {path: 'course', component: CourseComponent},
+  {path: 'course-status', component: CourseStatusComponent},
   {path: 'cart-details', component: CartDetailsComponent},
   {path: 'search/:keyword', component: OfferListComponent},
   {path: 'offer_category/:id', component: OfferListComponent},
@@ -53,6 +57,8 @@ const routes: Routes = [
     RegisterComponent,
     RegisterdetailsComponent,
     ParticipantsListComponent,
+    CourseComponent,
+    CourseStatusComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),

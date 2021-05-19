@@ -1,0 +1,18 @@
+<header class="header-desktop">
+  <div class="section-content section-content-p30">
+    <div class="container-fluid">
+      <div class="header-wrap">
+
+        <app-search></app-search>
+        <p *ngIf="!this.loginService.isUserLoggedIn()"><app-login></app-login> </p>
+        <p *ngIf="!this.loginService.isUserLoggedIn()"><app-register></app-register> </p>
+        <p *ngIf="this.loginService.isUserLoggedIn()"><app-course-status></app-course-status> </p>
+        <p *ngIf="this.loginService.isUserLoggedIn()"><app-logout></app-logout> </p>
+        <app-cart-status></app-cart-status>
+
+
+      </div>
+      <div class="account-wrap"></div>
+    </div>
+  </div>
+</header>

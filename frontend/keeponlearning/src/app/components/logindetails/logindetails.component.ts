@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {KeepOnLearningValidators} from "../../validators/keep-on-learning-validators";
+import {LoginService} from "../../services/login.service";
+import {ChangeDetection} from "@angular/cli/lib/config/schema";
 
 @Component({
   selector: 'app-logindetails',
@@ -10,7 +12,9 @@ import {KeepOnLearningValidators} from "../../validators/keep-on-learning-valida
 })
 export class LogindetailsComponent implements OnInit {
   loginFormGroup: FormGroup;
-  constructor(private router: Router,private formBuilder: FormBuilder) { }
+  private invalidLogin=true;
+
+  constructor(private cd: ChangeDetectorRef,private router: Router,private formBuilder: FormBuilder,private loginService:LoginService) { }
 
   ngOnInit(): void {
     this.loginFormGroup=this.formBuilder.group({
@@ -22,6 +26,7 @@ export class LogindetailsComponent implements OnInit {
 
       })
     });
+    //this.cd.detectChanges();
   }
 
   get username() { return this.loginFormGroup.get('client.username'); }
@@ -31,15 +36,24 @@ export class LogindetailsComponent implements OnInit {
 
 
   onSubmit(){
-    console.log("handling the submit button");
+
 
     if(this.loginFormGroup.invalid){
       this.loginFormGroup.markAllAsTouched();
     }
+    let e = this.email.value;
+    let p = this.password.value;
+    console.log("handling the submit button");
 
-    console.log(this.loginFormGroup.get('client').value);
-    console.log("The email address is" + this.loginFormGroup.get('client').value.email);
-  }
+    if (this.loginService.authenticate(e, p)) {
+      this.router.navigate(['/offers'])
+      this.invalidLogin = false;
+    } else{
+      this.invalidLogin = true;
+      }
+
+    this.cd.detectChanges();
+}
 
 
 }

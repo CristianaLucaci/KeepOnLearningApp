@@ -8,7 +8,7 @@
         <button (click)="addToCourses()" class="btn btn-primary btn-sm">Enroll to course</button>
       <br>
       <br>
-      <button (click)="showParticipants()"  class="btn btn-primary btn-sm"> <a routerLink="/participants-list"></a> Show Participants</button>
+      <button (click)="showParticipants()"  class="btn btn-primary btn-sm"> <a [routerLink]="['/participants-list',offer.id]"></a> Show Participants</button>
         <hr>
         <h4>Course description</h4>
         <p>{{ offer.description }}</p>

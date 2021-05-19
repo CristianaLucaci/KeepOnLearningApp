@@ -46,6 +46,6 @@ export class OfferDetailsComponent implements OnInit {
 
 
   showParticipants() {
-    this.router.navigateByUrl(`/participants-list`);
+    this.router.navigateByUrl(`/participants-list/${this.offer.id}`);
   }
 }

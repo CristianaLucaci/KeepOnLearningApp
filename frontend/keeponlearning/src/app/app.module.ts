@@ -39,6 +39,7 @@ const routes: Routes = [
   {path: 'logindetails', component: LogindetailsComponent},
   {path: 'registerdetails', component: RegisterdetailsComponent},
   {path: 'participants-list', component: ParticipantsListComponent},
+  {path: 'participants-list/:id', component: ParticipantsListComponent},
   {path: '', redirectTo: '/offers',pathMatch: 'full'},
   {path: '**', redirectTo: '/offers',pathMatch: 'full'}
 ];

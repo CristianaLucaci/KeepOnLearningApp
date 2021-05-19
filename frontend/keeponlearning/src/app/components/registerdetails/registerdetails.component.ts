@@ -16,10 +16,6 @@ export class RegisterdetailsComponent implements OnInit {
   loginFormGroup: FormGroup;
   constructor(private router: Router,private formBuilder: FormBuilder,private registerService: RegisterService) { }
 
-  hashPassword(password: string){
-    return "*".repeat(password.length)
-  }
-
   ngOnInit(): void {
     this.loginFormGroup=this.formBuilder.group({
       client: this.formBuilder.group({

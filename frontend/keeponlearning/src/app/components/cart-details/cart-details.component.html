@@ -19,14 +19,14 @@
                         <p>Course: {{ tempCartItem.name }} </p>
                         <p>Professor name: {{ tempCartItem.professorName }} </p>
                         <p>Participants: {{ tempCartItem.participants }} </p>
-                        <a routerLink="/checkout" class="btn btn-primary">Checkout</a>
+                        <a [routerLink]="['/checkout',tempCartItem.id]" (click)="remove(tempCartItem.id)" class="btn btn-primary">Checkout</a>
                     </td>
                     <td>
                         <p>{{ tempCartItem.description }} </p>
 
                     </td>
                     <td>
-                        <button (click)="remove(tempCartItem)" class="btn btn-primary btn-sm mt-2">Remove</button>
+                        <button (click)="remove(tempCartItem.id)"  class="btn btn-primary btn-sm mt-2">Remove</button>
                     </td>
                 </tr>
             </table>

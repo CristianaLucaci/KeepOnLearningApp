@@ -20,7 +20,7 @@ export class CartDetailsComponent implements OnInit {
   listCartDetails() {
     //get a hundle to the cart items
     this.cartItems = this.cartService.cartItems;
-    
+
     //subscribe to the cart totalQuantity
     this.cartService.totalQuantity.subscribe(
       data => this.totalQuantity = data
@@ -30,9 +30,9 @@ export class CartDetailsComponent implements OnInit {
     this.cartService.computeCartTotals();
   }
 
-  remove(theCartItem:CartItem){
-    this.cartService.remove(theCartItem);
+  remove(id:string){
+    this.cartService.remove(id);
   }
-  
+
 
 }

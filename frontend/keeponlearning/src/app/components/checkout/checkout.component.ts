@@ -1,6 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {KeepOnLearningValidators} from "../../validators/keep-on-learning-validators";
+import {Participant} from "../../common/participant";
+import {ParticipantsService} from "../../services/participants.service";
+import {ActivatedRoute, Router} from "@angular/router";
+import {ParticipantSmt} from "../../common/participant-smt";
+import {CartItem} from "../../common/cart-item";
+import {CartDetailsComponent} from "../cart-details/cart-details.component";
 
 @Component({
   selector: 'app-checkout',
@@ -9,11 +15,14 @@ import {KeepOnLearningValidators} from "../../validators/keep-on-learning-valida
 })
 export class CheckoutComponent implements OnInit {
   checkoutFormGroup: FormGroup;
+  @Input() id: string;
 
-
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private route: ActivatedRoute,private formBuilder: FormBuilder,private participantService:ParticipantsService,private router:Router) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe( params =>
+      this.id = params.get('id')
+    )
     this.checkoutFormGroup=this.formBuilder.group({
       customer: this.formBuilder.group({
         firstName: new FormControl('',[Validators.required,Validators.minLength(2), KeepOnLearningValidators.notOnlyWhitespace]),
@@ -32,10 +41,28 @@ export class CheckoutComponent implements OnInit {
 
     if(this.checkoutFormGroup.invalid){
       this.checkoutFormGroup.markAllAsTouched();
+      return;
     }
 
-    console.log(this.checkoutFormGroup.get('customer').value);
-    console.log("The emial address is" + this.checkoutFormGroup.get('customer').value.email);
+    let p=new Participant();
+    p.first_name=this.firstName.value;
+    p.last_name=this.lastName.value;
+    p.email=this.email.value;
+    p.id_course=this.id;// aici trebe facut ceva
+    let part=new ParticipantSmt();
+    part.participant=p;
+    this.participantService.add_participant(part).subscribe({
+        next: response =>{
+          alert(`${p.first_name} ${p.last_name} was enroled`)
+          this.router.navigateByUrl(`/cart-details`);
+        },
+        error: err=>{
+          alert(`There was an error: ${err.message}`);
+        }
+      }
+
+    );
+
   }
 
 }

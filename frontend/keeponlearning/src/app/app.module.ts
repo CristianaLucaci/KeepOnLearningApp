@@ -27,6 +27,7 @@ import { CourseStatusComponent } from './components/course-status/course-status.
 
 const routes: Routes = [
   {path: 'checkout', component: CheckoutComponent},
+  {path: 'checkout/:id', component: CheckoutComponent},
   {path: 'course', component: CourseComponent},
   {path: 'course-status', component: CourseStatusComponent},
   {path: 'cart-details', component: CartDetailsComponent},
@@ -40,7 +41,6 @@ const routes: Routes = [
   {path: 'participants-list', component: ParticipantsListComponent},
   {path: '', redirectTo: '/offers',pathMatch: 'full'},
   {path: '**', redirectTo: '/offers',pathMatch: 'full'}
-
 ];
 @NgModule({
   declarations: [
